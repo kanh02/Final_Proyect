@@ -1,50 +1,57 @@
 package salvoProyectcom.example.battleship;
 import org.hibernate.annotations.GenericGenerator;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import java.time.LocalDateTime;
+        import sun.util.calendar.BaseCalendar;
+
+import javax.persistence.*;
+import javax.xml.stream.events.Comment;
+import java.time.Instant;
+import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
+import java.util.*;
+
+import static java.util.stream.Collectors.toList;
 
 @Entity
-    public class Game {
+public class Game {
 
-        @Id
-        @GeneratedValue(strategy = GenerationType.AUTO, generator = "native")
-        @GenericGenerator(name = "native", strategy = "native")
-        private long id;
-
-
-        private String Date;
-
-        public Game() {
-        }
-
-        public Game(String Date) {  }
-
-        public String getDate() {
-
-//            Date = Date.toInstant();
-//            instant.plusSecond(n);
-//            Date.from(instant);
-//            Date newDate = Date.from(date.toInstant().PlusSecond(3600));
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO, generator = "native")
+    @GenericGenerator(name = "native", strategy = "native")
+    private long id;
 
 
-            DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm:ss");
-            LocalDateTime now = LocalDateTime.now();
-            
-            return Date;
-        }
+    @OneToMany(mappedBy="game", fetch=FetchType.EAGER)
+    Set<GamePlayer> gamePlayers = new LinkedHashSet<>();
 
-        public void setDate(String Date) {
-            this.Date = getDate();
-        }
-
-        public String toString() {
-            return Date;
-        }
-
-
+    public List<Player> getPlayers(){
+        return gamePlayers.stream().map(gp -> gp.getPlayer()).collect(toList());
     }
 
+
+//    public void addGame(Game game) {
+//        this.game = game;
+//        game.setGame(this);
+//        game.add(game);
+//
+//    }
+
+    private Date date = new Date();
+
+    public Game() { }
+
+    public long getId() {
+        return id;
+    }
+
+    public void setId(long id){
+        this.id = id;
+    }
+
+    public void setDate(Date Data){
+        this.date = Data;
+    }
+
+    public Date getDate(){
+        return this.date;
+    }
+}
