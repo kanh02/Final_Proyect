@@ -1,4 +1,5 @@
 package salvoProyectcom.example.battleship;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.hibernate.annotations.GenericGenerator;
         import sun.util.calendar.BaseCalendar;
 
@@ -22,6 +23,7 @@ public class Game {
 
     @OneToMany(mappedBy="game", fetch=FetchType.EAGER)
     Set<GamePlayer> gamePlayers = new LinkedHashSet<>();
+
 
     public List<Player> getPlayers(){
         return gamePlayers.stream().map(gp -> gp.getPlayer()).collect(toList());
@@ -47,11 +49,15 @@ public class Game {
         this.id = id;
     }
 
+    public Date getDate(){
+        return this.date;
+    }
+
     public void setDate(Date Data){
         this.date = Data;
     }
 
-    public Date getDate(){
-        return this.date;
+    public Set<GamePlayer> getGamePlayers() {
+        return gamePlayers;
     }
 }

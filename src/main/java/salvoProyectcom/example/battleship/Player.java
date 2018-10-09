@@ -1,4 +1,5 @@
 package salvoProyectcom.example.battleship;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.hibernate.annotations.GenericGenerator;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
@@ -25,6 +26,7 @@ public class Player {
     @OneToMany(mappedBy="player", fetch=FetchType.EAGER)
     Set<GamePlayer> gamePlayers= new LinkedHashSet<>();
 
+    @JsonIgnore
     public List<Game> getGames(){
     return gamePlayers.stream().map(gp -> gp.getGame()).collect(toList());}
 
@@ -39,23 +41,19 @@ public class Player {
 
     public Player() { }
 
-    public Player(String email) {
-        userName = email;
-    }
+    public Player(String email) { userName = email; }
 
-    public String getUserName() {
-        return userName;
-    }
+    public long getId() { return id; }
 
-    public void setUserName(String email) {
-        this.userName = email;
-    }
+    public String getUserName() { return userName; }
 
-    public String toString() {
-        return userName ;
-    }
+    public void setId(long id) { this.id = id; }
 
+    public void setGamePlayers(Set<GamePlayer> gamePlayers) { this.gamePlayers = gamePlayers; }
 
+    public void setUserName(String userName) { this.userName = userName; }
+
+    public Set<GamePlayer> getGamePlayers() { return gamePlayers; }
 }
 
 
