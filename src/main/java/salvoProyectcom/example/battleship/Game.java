@@ -29,14 +29,6 @@ public class Game {
         return gamePlayers.stream().map(gp -> gp.getPlayer()).collect(toList());
     }
 
-
-//    public void addGame(Game game) {
-//        this.game = game;
-//        game.setGame(this);
-//        game.add(game);
-//
-//    }
-
     private Date date = new Date();
 
     public Game() { }
@@ -44,7 +36,6 @@ public class Game {
     public long getId() {
         return id;
     }
-
     public void setId(long id){
         this.id = id;
     }
@@ -52,12 +43,10 @@ public class Game {
     public Date getDate(){
         return this.date;
     }
-
     public void setDate(Date Data){
         this.date = Data;
     }
 
-    public Set<GamePlayer> getGamePlayers() {
-        return gamePlayers;
-    }
+
+    public Set<GamePlayer> getGamePlayers() { return gamePlayers; }
 }
