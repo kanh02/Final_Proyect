@@ -6,4 +6,6 @@ import java.util.List;
 @RepositoryRestResource
     public interface ShipRepository extends JpaRepository<Ship, Long> {
 
+
+
 }

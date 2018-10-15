@@ -1,4 +1,5 @@
 	package salvoProyectcom.example.battleship;
+	import com.sun.deploy.security.ValidationState;
 	import org.springframework.beans.factory.annotation.Autowired;
 	import org.springframework.boot.CommandLineRunner;
 	import org.springframework.boot.SpringApplication;
@@ -24,8 +25,6 @@
 			@Bean
 			public CommandLineRunner initData (PlayerRepository repository,GameRepository repositoryGame,GamePlayerRepository repositoryGamePlayer,ShipRepository repositoryShip){
 				return (args) -> {
-
-
 
 					Player p1= new Player("c.obrian@ctu.gov");
 					repository.save(p1);
@@ -95,7 +94,7 @@
 					repositoryGamePlayer.save(gp7);
 					GamePlayer gp8 = new GamePlayer(p4, game4);
 					repositoryGamePlayer.save(gp8);
-	
+
 
 					GamePlayer gp9 = new GamePlayer(p2, game5);
 					repositoryGamePlayer.save(gp9);
@@ -114,9 +113,100 @@
 					GamePlayer gp14 = new GamePlayer(p3, game8);
 					repositoryGamePlayer.save(gp14);
 
-					List<String> location = Arrays.asList("H2","H3","H4");
+					List<String> location0 = Arrays.asList("H2","H3","H4");
 					List<String> location1 = Arrays.asList("E1","G1","F1");
-	//				Ship b1 =new Ship();
+					List<String> location2 = Arrays.asList("B4","B5");
+					List<String> location3 = Arrays.asList("B5","C5","D5");
+					List<String> location4 = Arrays.asList("F1","F2");
+					List<String> location5 = Arrays.asList("B5","C5","D5");
+					List<String> location6 = Arrays.asList("C6","C7");
+					List<String> location7 = Arrays.asList("A2","A3","A4");
+					List<String> location8 = Arrays.asList("G6","H6");
+					List<String> location9 = Arrays.asList("B5","C5","D5");
+					List<String> location10 = Arrays.asList("C6","C7");
+					List<String> location11 = Arrays.asList("A2","A3","A4");
+					List<String> location12 = Arrays.asList("G6","H6");
+					List<String> location13 = Arrays.asList("B5","C5","D5");
+					List<String> location14 = Arrays.asList("C6","C7");
+					List<String> location15 = Arrays.asList("A2","A3","A4");
+					List<String> location16 = Arrays.asList("G6","H6");
+					List<String> location17 = Arrays.asList("B5","C5","D5");
+					List<String> location18 = Arrays.asList("C6","C7");
+					List<String> location19 = Arrays.asList("A2","A3","A4");
+					List<String> location20 = Arrays.asList("G6","H6");
+					List<String> location21 = Arrays.asList("B5","C5","D5");
+					List<String> location22 = Arrays.asList("C6","C7");
+					List<String> location23 = Arrays.asList("B5","C5","D5");
+					List<String> location24 = Arrays.asList("C6","C7");
+					List<String> location25 = Arrays.asList("A2","A3","A4");
+					List<String> location26 = Arrays.asList("G6","H6");
+
+
+					Ship b1 = new Ship("Destroyer",location0,gp1);
+					repositoryShip.save(b1);
+					Ship b2 = new Ship("Submarine",location1,gp1);
+					repositoryShip.save(b2);
+					Ship b3 = new Ship("Patrol Boat",location2,gp1);
+					repositoryShip.save(b3);
+					Ship b4 = new Ship("Destroyer",location3,gp1);
+					repositoryShip.save(b4);
+					Ship b5 = new Ship("Patrol Boat",location4,gp1);
+					repositoryShip.save(b5);
+
+
+					Ship b6 = new Ship("Destroyer",location5,gp2);
+					repositoryShip.save(b6);
+					Ship b7 = new Ship("Patrol Boat",location6,gp2);
+					repositoryShip.save(b7);
+					Ship b8 = new Ship("Submarine",location7,gp2);
+					repositoryShip.save(b8);
+					Ship b9 = new Ship("Patrol Boat",location8,gp2);
+					repositoryShip.save(b9);
+
+
+					Ship b10 = new Ship("Destroyer",location9,gp3);
+					repositoryShip.save(b10);
+					Ship b11 = new Ship("Patrol Boat",location10,gp3);
+					repositoryShip.save(b11);
+					Ship b12 = new Ship("Submarine",location11,gp3);
+					repositoryShip.save(b12);
+					Ship b13 = new Ship("Patrol Boat",location12,gp3);
+					repositoryShip.save(b13);
+
+
+					Ship b14 = new Ship("Destroyer",location13,gp4);
+					repositoryShip.save(b14);
+					Ship b15 = new Ship("Patrol Boat",location14,gp4);
+					repositoryShip.save(b15);
+					Ship b16 = new Ship("Submarine",location15,gp4);
+					repositoryShip.save(b16);
+					Ship b17 = new Ship("Patrol Boat",location16,gp4);
+					repositoryShip.save(b17);
+
+
+					Ship b18 = new Ship("Destroyer",location17,gp5);
+					repositoryShip.save(b18);
+					Ship b19 = new Ship("Patrol Boat",location18,gp5);
+					repositoryShip.save(b19);
+					Ship b20 = new Ship("Submarine",location19,gp5);
+					repositoryShip.save(b20);
+					Ship b21 = new Ship("Patrol Boat",location20,gp5);
+					repositoryShip.save(b21);
+
+
+					Ship b22 = new Ship("Destroyer",location21,gp6);
+					repositoryShip.save(b22);
+					Ship b23 = new Ship("Patrol Boat",location22,gp6);
+					repositoryShip.save(b23);
+
+					Ship b24 = new Ship("Destroyer",location23,gp8);
+					repositoryShip.save(b24);
+					Ship b25 = new Ship("Patrol Boat",location24,gp8);
+					repositoryShip.save(b25);
+					Ship b26 = new Ship("Submarine",location25,gp8);
+					repositoryShip.save(b26);
+					Ship b27 = new Ship("Patrol Boat",location26,gp8);
+					repositoryShip.save(b27);
 
 				};
 			}
